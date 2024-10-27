@@ -52,10 +52,6 @@ class HomeController extends Controller
     {
         return view('web.tempo_service');
     }
-    public function packers_movers()
-    {
-        return view('web.packers_movers');
-    }
     public function cab()
     {
         return view('web.cab');
