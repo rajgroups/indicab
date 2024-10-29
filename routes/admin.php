@@ -7,6 +7,9 @@ use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\admin\PageController;
 use App\Http\Controllers\admin\SubserviceController;
+use App\Http\Controllers\admin\PriceController;
+use App\Http\Controllers\admin\TestimonialController;
+use App\Http\Controllers\admin\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,19 +48,40 @@ Route::prefix('admin')->group(function(){
         });
         Route::resource('subservice', SubserviceController::class);
 
-        // Service Managment Service Module
+        // location Managment Module
         Route::prefix('location')->name('location')->group(function(){
             Route::get('/active',[LocationController::class,'active'])->name('.active');
             Route::get('/inactive',[LocationController::class,'inactive'])->name('.inactive');
         });
         Route::resource('location', LocationController::class);
 
-        // Service Managment Service Module
+        // location Managment Module
+        Route::prefix('testimonial')->name('testimonial')->group(function(){
+            Route::get('/active',[TestimonialController::class,'active'])->name('.active');
+            Route::get('/inactive',[TestimonialController::class,'inactive'])->name('.inactive');
+        });
+        Route::resource('testimonial', TestimonialController::class);
+        
+        // location Managment Module
+        Route::prefix('faq')->name('faq')->group(function(){
+            Route::get('/active',[FaqController::class,'active'])->name('.active');
+            Route::get('/inactive',[FaqController::class,'inactive'])->name('.inactive');
+        });
+        Route::resource('faq', FaqController::class);
+
+        // Service Managment Module
         Route::prefix('service-page')->name('service-page')->group(function(){
             Route::get('/active',[LocationController::class,'active'])->name('.active');
             Route::get('/inactive',[LocationController::class,'inactive'])->name('.inactive');
         });
         Route::resource('service-page', LocationController::class);
+
+        // price Managment Module
+        Route::prefix('price')->name('price')->group(function(){
+            Route::get('/active',[PriceController::class,'active'])->name('.active');
+            Route::get('/inactive',[PriceController::class,'inactive'])->name('.inactive');
+        });
+        Route::resource('price', PriceController::class);
         
         // CMS Managment Route System 
         Route::get('/page/create',function(){ return view('admin.page.create');});

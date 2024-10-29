@@ -23,9 +23,14 @@ class service extends Model
         return $this->hasMany(page::class, 'service_id');
     }
 
-        // Relation to Pages
-        public function subservice()
-        {
-            return $this->hasMany(subservice::class, 'service_id');
-        }
+    // Relation to Pages
+    public function subservice()
+    {
+        return $this->hasMany(subservice::class, 'service_id');
+    }
+
+    public function prices()
+    {
+        return $this->hasMany(price::class, 'service_id');
+    }
 }

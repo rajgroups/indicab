@@ -143,94 +143,19 @@
          </div>
          <div class="browse-categories-content">
             <div class="row row-gap aos" data-aos="fade-up">
+               @foreach ($subservices as $subservice)
                <div class="col-lg-3 col-md-6 col-6 aos  " data-aos="zoom-in" data-aos-duration="1000">
                   <div class="popular-catergories">
                      <div class="popular-catergories-img">
-                        <span><img src="{{ asset('resource/web/assets/img/icon/house.png')}}" alt="Indicab Packers and movers Household shifting" title="Indicab Packers and movers Household shifting"></span>
+                        <span><img src="{{ asset('subservice/'.$subservice->icon)}}" alt="Indicab Packers and movers Household shifting" title="Indicab Packers and movers Household shifting"></span>
                      </div>
                      <div class="popular-catergories-content">
-                        <h3 class="h6">Household Shifting</h3>
+                        <h3 class="h6">{{ $subservice->name }}</h3>
                         <a href="javascript:void(0);" title="Indicab Household Shifting Packes and movers">Indicab</a>
                      </div>
                   </div>
                </div>
-               <div class="col-lg-3 col-md-6 col-6 aos  " data-aos="zoom-in" data-aos-duration="1500">
-                  <div class="popular-catergories">
-                     <div class="popular-catergories-img">
-                        <span><img src="{{ asset('resource/web/assets/img/icon/officeicon.png')}}" alt="Indicab Packers and movers Office shifting" title="Indicab Packers and movers Office shifting"></span>
-                     </div>
-                     <div class="popular-catergories-content">
-                        <h3 class="h6">Office &amp; Shifting</h3>
-                        <a href="javascript:void(0);" title="Indicab Office Shifting Packes and movers">Indicab</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-md-6 col-6 aos  " data-aos="zoom-in" data-aos-duration="2000">
-                  <div class="popular-catergories">
-                     <div class="popular-catergories-img">
-                        <span><img src="{{ asset('resource/web/assets/img/icon/vehicle.png')}}" alt="Indicab Packers and movers cargo" title="Indicab Packers and movers cargo"></span>
-                     </div>
-                     <div class="popular-catergories-content">
-                        <h3 class="h6">Cargo Moving</h3>
-                        <a href="javascript:void(0);" title="Indicab Cargo Packes and movers">Indicab</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-md-6 col-6 aos  " data-aos="zoom-in" data-aos-duration="2500">
-                  <div class="popular-catergories">
-                     <div class="popular-catergories-img">
-                        <span><img src="{{ asset('resource/web/assets/img/icon/commercial.png')}}" alt="Indicab Packers and movers Commercial" title="Indicab Packers and movers Commercial"></span>
-                     </div>
-                     <div class="popular-catergories-content">
-                        <h3 class="h6">Commercial &amp; Moving</h3>
-                        <a href="javascript:void(0);" title="Indicab Commercial Packes and movers">Indicab</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-md-6 col-6 aos  " data-aos="zoom-in" data-aos-duration="1000">
-                  <div class="popular-catergories">
-                     <div class="popular-catergories-img">
-                        <span><img src="{{ asset('resource/web/assets/img/icon/packing.png')}}" alt="Indicab Packers and movers Packing" title="Indicab Packers and movers car Packing"></span>
-                     </div>
-                     <div class="popular-catergories-content">
-                        <h3 class="h6">Household&amp; Packing</h3>
-                        <a href="javascript:void(0);"  title="Indicab Household Packes and movers">Indicab</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-md-6 col-6 aos  " data-aos="zoom-in" data-aos-duration="1500">
-                  <div class="popular-catergories">
-                     <div class="popular-catergories-img">
-                        <span><img src="{{ asset('resource/web/assets/img/icon/loaded-vehicle.png')}}" alt="Indicab Packers and movers Loading" title="Indicab Packers and movers car Loading"></span>
-                     </div>
-                     <div class="popular-catergories-content">
-                        <h3 class="h6">Loading &amp; Proccess</h3>
-                        <a href="javascript:void(0);" title="Indicab Loading Packes and movers">Indicab</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-md-6 col-6 aos  " data-aos="zoom-in" data-aos-duration="2000">
-                  <div class="popular-catergories">
-                     <div class="popular-catergories-img">
-                        <span><img src="{{ asset('resource/web/assets/img/icon/userLoader.png')}}" alt="Indicab Packers and movers Unloading" title="Indicab Packers and movers car Unloading"></span>
-                     </div>
-                     <div class="popular-catergories-content">
-                        <h3 class="h6">UnLoading &amp; Proccess</h3>
-                        <a href="javascript:void(0);">Indicab</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-md-6 col-6 aos  " data-aos="zoom-in" data-aos-duration="2500">
-                  <div class="popular-catergories">
-                     <div class="popular-catergories-img">
-                        <span><img src="{{ asset('resource/web/assets/img/icon/carshiting.png')}}" alt="Indicab Packers and movers car shitfting" title="Indicab Packers and movers car shitfting"></span>
-                     </div>
-                     <div class="popular-catergories-content">
-                        <h3 class="h6">Car &amp; Shifting</h3>
-                        <a href="javascript:void(0);">Indicab</a>
-                     </div>
-                  </div>
-               </div>
+               @endforeach
             </div>
          </div>
          <div class="home-four-viewall">
@@ -332,10 +257,11 @@
             </div>
          </div>
          <div id="dev-slider" class="owl-carousel popular-slider developers-slider owl-theme  aos" data-aos="fade-up">
+            @foreach ($locations as $location)
             <div class="project-item project-item-feature aos" data-aos="fade-up">
                <a href="developer-details.html">
                   <div class="project-img heart-blk">
-                     <img src="{{ asset('resource/web/assets/img/city/tirupathi.jpg')}}" class="img-fluid" alt="Indicab Packers and movers Tirupathi" title="Indicab Packers and movers Tirupathi">
+                     <img src="{{ asset('location/'.$location->image)}}" class="img-fluid" alt="Indicab Packers and movers Tirupathi" title="Indicab Packers and movers Tirupathi">
                      {{-- <span class="hour-dollr develop-dollr">$64 <small>/ hr</small></span> --}}
                   </div>
                </a>
@@ -343,10 +269,10 @@
                   <div class="developer-detail-card">
                      <div>
                         <div class="d-flex align-items-center">
-                           <h4 class="mb-0 mt-2"><a href="developer-details.html">Tirupathi</a></h4>
-                           <img class="ms-1" src="{{ asset('resource/web/assets/img/icon/verified-badge-fill.svg')}}" alt="Indicab Packers and movers Tirupathi" title="Indicab Packers and movers Tirupathi">
+                           <h4 class="mb-0 mt-2"><a href="developer-details.html">{{ $location->name }}</a></h4>
+                           {{-- <img class="ms-1" src="{{ asset('location/'.$location->image)}}" alt="Indicab Packers and movers Tirupathi" title="Indicab Packers and movers Tirupathi"> --}}
                         </div>
-                        <h3 class="mb-0 h6 text-secondary">Indicab Packers and movers in Tirupathi</h3>
+                        <h3 class="mb-0 h6 text-secondary">Indicab Packers and movers in {{ $location->name }}</h3>
                      </div>
                      <div>
                         <a href="javascript:void(0);" class="bookmark-check"><i class="mt-2 fa-regular fa-bookmark"></i></a>
@@ -367,146 +293,7 @@
                   </div>
                </div>
             </div>
-            <div class="project-item project-item-feature aos" data-aos="fade-up">
-               <a href="developer-details.html">
-                  <div class="project-img heart-blk">
-                     <img src="{{ asset('resource/web/assets/img/city/bangalore.jpg')}}" class="img-fluid" alt="Indicab Packers and movers Bangalore" title="Indicab Packers and movers Bangalore">
-                     {{-- <span class="hour-dollr develop-dollr">$54 <small>/ hr</small></span> --}}
-                  </div>
-               </a>
-               <div class="developer-detail-box">
-                  <div class="developer-detail-card">
-                     <div>
-                        <div class="d-flex align-items-center">
-                           <h4 class="mb-0 mt-2"><a href="developer-details.html">Bangalore</a></h4>
-                           <img class="ms-1" src="{{ asset('resource/web/assets/img/icon/verified-badge-fill.svg')}}" alt="Indicab Packers and movers Bangalore" title="Indicab Packers and movers Bangalore">
-                        </div>
-                        <h3 class="mb-0 h6 text-secondary"> Indicab Packers and movers in Bangalore</h3>
-                     </div>
-                     <div>
-                        <a href="javascript:void(0);" class="bookmark-check"><i class="mt-2 fa-regular fa-bookmark"></i></a>
-                     </div>
-                  </div>
-                  <div class="rate-block">
-                     <div class="rating">
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star"></i>
-                        <span class="average-rating">5.0</span>
-                     </div>
-                     <div>
-                        <a href="developer-details.html"><i class="feather-arrow-right"></i></a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="project-item project-item-feature aos" data-aos="fade-up">
-               <a href="developer-details.html">
-                  <div class="project-img heart-blk">
-                     <img src="{{ asset('resource/web/assets/img/city/hyderabad.jpg')}}" class="img-fluid" alt="Indicab Packers and movers Hyderabad" title="Indicab Packers and movers Hyderabad">
-                     {{-- <span class="hour-dollr develop-dollr">$35 <small>/ hr</small></span> --}}
-                  </div>
-               </a>
-               <div class="developer-detail-box">
-                  <div class="developer-detail-card">
-                     <div>
-                        <div class="d-flex align-items-center">
-                           <h4 class="mb-0 mt-2"><a href="developer-details.html">Hyderabad</a></h4>
-                           <img class="ms-1" src="{{ asset('resource/web/assets/img/icon/verified-badge-fill.svg')}}" alt="Indicab Packers and movers Hyderabad" title="Indicab Packers and movers Hyderabad">
-                        </div>
-                        <h3 class="mb-0 h6 text-secondary">Indicab Packers and movers in Hyderabad</h3>
-                     </div>
-                     <div>
-                        <a href="javascript:void(0);" class="bookmark-check"><i class="mt-2 fa-regular fa-bookmark"></i></a>
-                     </div>
-                  </div>
-                  <div class="rate-block">
-                     <div class="rating">
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star"></i>
-                        <span class="average-rating">5.0</span>
-                     </div>
-                     <div>
-                        <a href="developer-details.html"><i class="feather-arrow-right"></i></a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="project-item project-item-feature aos" data-aos="fade-up">
-               <a href="developer-details.html">
-                  <div class="project-img heart-blk">
-                     <img src="{{ asset('resource/web/assets/img/city/kochi.jpg')}}" class="img-fluid" alt="Indicab Packers and movers Kochi" title="Indicab Packers and movers Kochi">
-                     {{-- <span class="hour-dollr develop-dollr">$68 <small>/ hr</small></span> --}}
-                  </div>
-               </a>
-               <div class="developer-detail-box">
-                  <div class="developer-detail-card">
-                     <div>
-                        <div class="d-flex align-items-center">
-                           <h4 class="mb-0 mt-2"><a href="developer-details.html">Kochi</a></h4>
-                           <img class="ms-1" src="{{ asset('resource/web/assets/img/icon/verified-badge-fill.svg')}}" alt="Indicab Packers and movers Kochi" title="Indicab Packers and movers Kochi">
-                        </div>
-                        <h3 class="mb-0 h6 text-secondary">Indicab Packers and movers in Kochi</h3>
-                     </div>
-                     <div>
-                        <a href="javascript:void(0);" class="bookmark-check"><i class="mt-2 fa-regular fa-bookmark"></i></a>
-                     </div>
-                  </div>
-                  <div class="rate-block">
-                     <div class="rating">
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star"></i>
-                        <span class="average-rating">5.0</span>
-                     </div>
-                     <div>
-                        <a href="developer-details.html"><i class="feather-arrow-right"></i></a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="project-item project-item-feature aos" data-aos="fade-up">
-               <a href="developer-details.html">
-                  <div class="project-img heart-blk">
-                     <img src="{{ asset('resource/web/assets/img/city/kozhicode.jpg')}}" alt="Img" class="img-fluid">
-                     {{-- <span class="hour-dollr develop-dollr">$64 <small>/ hr</small></span> --}}
-                  </div>
-               </a>
-               <div class="developer-detail-box">
-                  <div class="developer-detail-card">
-                     <div>
-                        <div class="d-flex align-items-center">
-                           <h4 class="mb-0 mt-2"><a href="developer-details.html">Kozhikode</a></h4>
-                           <img class="ms-1" src="{{ asset('resource/web/assets/img/icon/verified-badge-fill.svg')}}" alt="Indicab Packers and movers Kozhikode" title="Indicab Packers and movers Kozhikode">
-                        </div>
-                        <h3 class="mb-0 h6 text-secondary">Indicb Packes and Movers Kozhikode</h3>
-                     </div>
-                     <div>
-                        <a href="javascript:void(0);" class="bookmark-check"><i class="mt-2 fa-regular fa-bookmark"></i></a>
-                     </div>
-                  </div>
-                  <div class="rate-block">
-                     <div class="rating">
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star filled"></i>
-                        <i class="fas fa-star"></i>
-                        <span class="average-rating">5.0</span>
-                     </div>
-                     <div>
-                        <a href="developer-details.html"><i class="feather-arrow-right"></i></a>
-                     </div>
-                  </div>
-               </div>
-            </div>
+            @endforeach
          </div>
          <div class="home-four-viewall">
             <a href="developer-details.html" class="home-four-viewall-btn">View More Places <i class="feather-arrow-right ms-2"></i></a>
@@ -558,74 +345,25 @@
             </div>
          </div>
          <div id="popular-slider" class="owl-carousel owl-theme popular-slider developers-slider aos" data-aos="fade-up">
+            @foreach ($prices as $price)
             <div class="popular-group">
                <div class="blog-image">
                   <a href="project.html"><img class="img-fluid" src="{{ asset('resource/web/assets/img/indicab-packers-movers/indicab_packing_image.jpg')}}" alt="Indicab Packers and movers 1BHK Shifting" title="Indicab Packers and movers 1BHK Shifting"></a>
                </div>
                <div class="popular-content-blk">
                   <div class="head-popular">
-                     <h4><a href="project.html">1BHK Household Shifting</a></h4>
+                     <h4><a href="project.html">{{ $price->name }}</a></h4>
                      <p><i class="feather-home me-1"></i>Packers and Movers</p>
                   </div>
                   <div class="popular-list-box">
                      <ul class="nav">
-                        <li>0-10 Km</li>                       </ul>
-                     <h4>Rs. 4,000 - 8,200</h4>
+                        <li>{{ $price->item_ratio }}</li>                       </ul>
+                     <h4>{{ $price->price_ratio }}</h4>
                   </div>
-                  <p class="popular-foot">Moving a 1 BHK within the city (0-10 km) costs between Rs. 4,000 and Rs. 8,200. For city-to-city moves up to 500 km, the cost ranges from Rs. 10,300 to Rs. 20,400. If the distance exceeds 500 km, expect to pay between Rs. 15,000 and Rs. 25,200.</p>
+                  <p class="popular-foot">{{ $price->short_description }}  </p>
                </div>
             </div>
-            <div class="popular-group">
-               <div class="blog-image">
-                  <a href="project.html"><img class="img-fluid" src="{{ asset('resource/web/assets/img/indicab-packers-movers/house-to-truck-load.png')}}" alt="Indicab Packers and movers 2BHK Shifting" title="Indicab Packers and movers 2BHK Shifting"></a>
-               </div>
-               <div class="popular-content-blk">
-                  <div class="head-popular">
-                     <h4><a href="project.html">2BHK Household Shifting</a></h4>
-                     <p><i class="feather-home me-1"></i>Packers and Movers</p>
-                  </div>
-                  <div class="popular-list-box">
-                     <ul class="nav">
-                        <li>0-10 Km</li>                       </ul>
-                     <h4>Rs. 8,200 - 12,300</h4>
-                  </div>
-                  <p class="popular-foot">Moving a 2 BHK within the city (0-10 km) costs between Rs. 8,200 and Rs. 12,300. For city-to-city moves up to 500 km, the cost ranges from Rs. 15,000 to Rs. 25,200. If the distance exceeds 500 km, expect to pay between Rs. 20,400 and Rs. 30,100.</p>
-               </div>
-            </div>
-            <div class="popular-group">
-               <div class="blog-image">
-                  <a href="project.html"><img class="img-fluid" src="{{ asset('resource/web/assets/img/indicab-packers-movers/house-to-truck-load- (3).png')}}" alt="Indicab Packers and movers 3BHK Shifting" title="Indicab Packers and movers 3BHK Shifting"></a>
-               </div>
-               <div class="popular-content-blk">
-                  <div class="head-popular">
-                     <h4><a href="project.html">3BHK Household Shifting</a></h4>
-                     <p><i class="feather-home me-1"></i>Packers and Movers</p>
-                  </div>
-                  <div class="popular-list-box">
-                     <ul class="nav">
-                        <li>0-10 Km</li>                       </ul>
-                     <h4>Rs. 12,300 - 18,200</h4>
-                  </div>
-                  <p class="popular-foot">Moving a 3 BHK within the city (0-10 km) costs between Rs. 12,300 and Rs. 18,200. For city-to-city moves up to 500 km, the cost ranges from Rs. 20,400 to Rs. 30,100. If the distance exceeds 500 km, expect to pay between Rs. 25,200 and Rs. 40,200.</p>
-               </div>
-            </div>
-            <div class="popular-group">
-               <div class="blog-image">
-                  <a href="project.html"><img class="img-fluid" src="{{ asset('resource/web/assets/img/indicab-packers-movers/house-to-truck-load- (2).png')}}" alt="Indicab Packers and movers 4Bhk Shifting" title="Indicab Packers and movers 4Bhk Shifting"></a>
-               </div>
-               <div class="popular-content-blk">
-                  <div class="head-popular">
-                     <h4><a href="project.html">4 BHK or Villa</a></h4>
-                     <p><i class="feather-home me-1"></i>Packers and Movers</p>
-                  </div>
-                  <div class="popular-list-box">
-                     <ul class="nav">
-                        <li>0-10 Km</li>                       </ul>
-                     <h4>Rs. 15,000 - 25,200</h4>
-                  </div>
-                  <p class="popular-foot">Moving a 4 BHK or villa within the city (0-10 km) costs between Rs. 15,000 and Rs. 25,200. For city-to-city moves up to 500 km, the cost ranges from Rs. 25,200 to Rs. 40,200. If the distance exceeds 500 km, expect to pay between Rs. 35,000 and Rs. 50,100.</p>
-               </div>
-            </div>
+            @endforeach
          </div>
       </div>
    </section>
@@ -704,50 +442,19 @@
             </div>
          </div>
          <div class="row row-gap">
+            @foreach ($locations as $location)
             <div class="col-xl-3 col-md-4 aos" data-aos="fade-up">
                <div class="blog-article-group job-loc">
                   <div class="blog-image">
-                     <a href="blog-details.html"><img class="img-fluid" src="{{ asset('resource/web/assets/img/city/karnataka.jpg')}}" class="img-fluid" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers Karnataka"></a>
+                     <a href="blog-details.html"><img class="img-fluid" src="{{ asset('location/'.$location->image)}}" class="img-fluid" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers Karnataka"></a>
                      <div class="article-blog-content">
                         <span> Karntaka, India</span>
-                        <h4><a href="blog-details.html">Indicab Packers and Movers Karnataka</a></h4>
+                        <h4><a href="blog-details.html">Indicab Packers and Movers {{ $location->name }}</a></h4>
                      </div>
                   </div>
                </div>
             </div>
-            <div class="col-xl-3 col-md-4 aos" data-aos="fade-up">
-               <div class="blog-article-group job-loc">
-                  <div class="blog-image">
-                     <a href="blog-details.html"><img class="img-fluid" src="{{ asset('resource/web/assets/img/city/kerala.jpg')}}" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers Kerala"></a>
-                     <div class="article-blog-content">
-                        <span> Kerala, India</span>
-                        <h4><a href="blog-details.html">Indicab Packers and Movers Kerala</a></h4>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-xl-3 col-md-4 aos" data-aos="fade-up">
-               <div class="blog-article-group job-loc">
-                  <div class="blog-image">
-                     <a href="blog-details.html"><img class="img-fluid" src="{{ asset('resource/web/assets/img/city/tamilnadu.jpg')}}" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers Tamil Nadu"></a>
-                     <div class="article-blog-content">
-                        <span>Tamil Nadu, India</span>
-                        <h4><a href="blog-details.html">Indicab Packers and Movers Tamil Nadu</a></h4>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-xl-3 col-md-4 aos" data-aos="fade-up">
-               <div class="blog-article-group job-loc">
-                  <div class="blog-image">
-                     <a href="blog-details.html"><img class="img-fluid" src="{{ asset('resource/web/assets/img/city/hyderabad.jpg')}}" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers Hyderabad"></a>
-                     <div class="article-blog-content">
-                        <span>Hyderabad, India</span>
-                        <h4><a href="blog-details.html">Indicab Packers and Movers Hyderabad</a></h4>
-                     </div>
-                  </div>
-               </div>
-            </div>
+            @endforeach
          </div>
       </div>
    </section>
@@ -766,18 +473,19 @@
             </div>
          </div>
          <div id="testimonial-slider" class="owl-carousel owl-theme testimonial-slider aos" data-aos="fade-up">
+            @foreach ($testimonials as $testimonial )
             <div class="review-blog">
                <div class="review-top d-flex align-items-center">
                   <div class="review-img">
-                     <a href="review.html"><img class="img-fluid" src="{{ asset('resource/web/assets/img/review/review-01.jpg')}}" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers Users"></a>
+                     <a href="review.html"><img class="img-fluid" src="{{ asset('testimonial/'.$testimonial->image)}}" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers Users"></a>
                   </div>
                   <div class="review-info">
-                     <h3><a href="review.html">Harish N B</a></h3>
+                     <h3><a href="review.html">{{ $testimonial->name }}</a></h3>
                      <p>Indicab Users</p>
                   </div>
                </div>
                <div class="review-content">
-                  <p>"INDICAB Packers and Movers made my relocation from Bangalore to Mumbai a breeze. Their team was professional, efficient, and took great care of all my belongings. I was particularly impressed with their packing techniques and the timely delivery. Highly recommend their services!"</p>
+                  <p>"{{ $testimonial->description }}"</p>
                   <div class="rating">
                      <i class="fas fa-star filled"></i>
                      <i class="fas fa-star filled"></i>
@@ -787,69 +495,8 @@
                   </div>
                </div>
             </div>
-            <div class="review-blog">
-               <div class="review-top d-flex align-items-center">
-                  <div class="review-img">
-                     <a href="review.html"><img class="img-fluid" src="{{ asset('resource/web/assets/img/review/review-02.jpg')}}" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers Users"></a>
-                  </div>
-                  <div class="review-info">
-                     <h3><a href="review.html">Yashwantha Kumar R</a></h3>
-                     <h5>Indicab Users</h5>
-                  </div>
-               </div>
-               <div class="review-content">
-                  <p>"We recently moved our 3 BHK home within Delhi, and INDICAB Packers and Movers exceeded our expectations. The crew was punctual, courteous, and handled everything with utmost care. The entire process was smooth and hassle-free. Thank you, INDICAB, for making our move so easy!"</p>
-                  <div class="rating">
-                     <i class="fas fa-star filled"></i>
-                     <i class="fas fa-star filled"></i>
-                     <i class="fas fa-star filled"></i>
-                     <i class="fas fa-star filled"></i>
-                     <i class="fas fa-star"></i>
-                  </div>
-               </div>
-            </div>
-            <div class="review-blog">
-               <div class="review-top d-flex align-items-center">
-                  <div class="review-img">
-                     <a href="review.html"><img class="img-fluid" src="{{ asset('resource/web/assets/img/review/review-03.jpg')}}" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers Users"></a>
-                  </div>
-                  <div class="review-info">
-                     <h3><a href="review.html">Merthun E</a></h3>
-                     <h5>Indicab Users</h5>
-                  </div>
-               </div>
-               <div class="review-content">
-                  <p>"I had to move my office from Chennai to Hyderabad, and INDICAB Packers and Movers did a fantastic job. They managed the entire process professionally, ensuring all office equipment and furniture were safely transported. Their team’s dedication and attention to detail are commendable."</p>
-                  <div class="rating">
-                     <i class="fas fa-star filled"></i>
-                     <i class="fas fa-star filled"></i>
-                     <i class="fas fa-star filled"></i>
-                     <i class="fas fa-star filled"></i>
-                     <i class="fas fa-star"></i>
-                  </div>
-               </div>
-            </div>
-            <div class="review-blog">
-               <div class="review-top d-flex align-items-center">
-                  <div class="review-img">
-                     <a href="review.html"><img class="img-fluid" src="{{ asset('resource/web/assets/img/review/review-02.jpg')}}" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers Users"></a>
-                  </div>
-                  <div class="review-info">
-                     <h3><a href="review.html">Kamal Kant</a></h3>
-                     <h5>Indicab User</h5>
-                  </div>
-               </div>
-               <div class="review-content">
-                  <p>"Moving can be stressful, but INDICAB Packers and Movers made it a pleasant experience. From the initial consultation to the final unpacking, their service was top-notch. The team was friendly, efficient, and took special care of my fragile items. I couldn’t have asked for a better moving service."</p>
-                  <div class="rating">
-                     <i class="fas fa-star filled"></i>
-                     <i class="fas fa-star filled"></i>
-                     <i class="fas fa-star filled"></i>
-                     <i class="fas fa-star filled"></i>
-                     <i class="fas fa-star"></i>
-                  </div>
-               </div>
-            </div>
+            @endforeach
+           
          </div>
       </div>
    </section>
@@ -952,46 +599,19 @@
          </div>
          <div class="row" id="accordionExample">
             <div class="col-lg-6">
-               <div class="faq-card aos  " data-aos="fade-up">
-                  <h4 class="faq-title">
-                     <a class="collapseds active" data-bs-toggle="collapse" href="#faqOne" aria-expanded="true">1.  What services do INDICAB Packers and Movers offer?</a>
-                  </h4>
-                  <div id="faqOne" class="card-collapse collapse show" data-bs-parent="#accordionExample">
-                     <p>INDICAB Packers and Movers provide comprehensive moving services including packing, loading, transportation, unloading, and unpacking for residential moves ranging from 1 BHK apartments to large villas. They also offer city-to-city relocation services across India.</p>
-                  </div>
-               </div>
-               <div class="faq-card aos  " data-aos="fade-up">
-                  <h4 class="faq-title">
-                     <a class="collapsed" data-bs-toggle="collapse" href="#faqtwo" aria-expanded="false">2. How do I get a quote for my move?</a>
-                  </h4>
-                  <div id="faqtwo" class="card-collapse collapse" data-bs-parent="#accordionExample">
-                     <p>You can get a quote by contacting INDICAB Packers and Movers through their website or customer service. Provide details about your move such as the size of your home, the distance of the move, and any additional services you may need.</p>
-                  </div>
-               </div>
-               <div class="faq-card aos  " data-aos="fade-up">
-                  <h4 class="faq-title">
-                     <a class="collapsed" data-bs-toggle="collapse" href="#faqthree" aria-expanded="false">3. How does INDICAB ensure the safety of my belongings?</a>
-                  </h4>
-                  <div id="faqthree" class="card-collapse collapse" data-bs-parent="#accordionExample">
-                     <p>INDICAB Packers and Movers use high-quality packing materials and professional techniques to ensure the safe handling of your belongings. Their experienced team takes care of secure packing, loading, and transportation to prevent any damage during the move.</p>
-                  </div>
-               </div>
-               <div class="faq-card aos  " data-aos="fade-up">
-                  <h4 class="faq-title">
-                     <a class="collapsed" data-bs-toggle="collapse" href="#faqfour" aria-expanded="false">4. What are the costs associated with moving a 2 BHK within the city?</a>
-                  </h4>
-                  <div id="faqfour" class="card-collapse collapse" data-bs-parent="#accordionExample">
-                     <p>The cost of moving a 2 BHK within the city (0-10 km) ranges from Rs. 8,200 to Rs. 12,300. Prices vary based on the specific requirements of the move and any additional services requested.</p>
-                  </div>
-               </div>
-               <div class="faq-card aos  " data-aos="fade-up">
-                  <h4 class="faq-title">
-                     <a class="collapsed" data-bs-toggle="collapse" href="#faqfive" aria-expanded="false">5. How far in advance should I schedule my move with INDICAB?</a>
-                  </h4>
-                  <div id="faqfive" class="card-collapse collapse" data-bs-parent="#accordionExample">
-                     <p>It is recommended to schedule your move at least 2-3 weeks in advance to ensure availability and allow adequate time for planning and preparation. This helps INDICAB Packers and Movers to provide a smooth and efficient moving experience.</p>
-                  </div>
-               </div>
+               @foreach ($faqs as $index => $faq)
+                  <div class="faq-card aos" data-aos="fade-up">
+                     <h4 class="faq-title">
+                           <a class="collapseds" data-bs-toggle="collapse" href="#faq{{ $index }}" aria-expanded="true">
+                              {{ $faq->qustion }}23sadsadsad
+                           </a>
+                     </h4>
+                     <div id="faq{{ $index }}" class="card-collapse collapse" data-bs-parent="#accordionExample">
+                           <p>{{ $faq->answer }}</p>
+                     </div>
+                  </div> 
+               @endforeach
+
             </div>
             <div class="col-lg-6">
                <div class="faq-imgs">
