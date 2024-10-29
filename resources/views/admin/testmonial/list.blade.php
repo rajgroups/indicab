@@ -8,7 +8,7 @@
                         <div class="nk-block-between g-3">
                             <div class="nk-block-head-content">
                                 <h3 class="nk-block-title page-title">Home /
-                                    <strong class="text-primary small">Sub service/
+                                    <strong class="text-primary small">Testimonial /
                                         <strong class="text-primary small">list/
                                         </strong>
                                 </h3>
@@ -28,10 +28,10 @@
                             </div>
 
                             <div class="nk-block-head-content">
-                                <a href="{{ route('admin.subservice.create') }}"
+                                <a href="{{ route('admin.testimonial.create') }}"
                                     class="btn btn-outline-light bg-white d-none d-sm-inline-flex">
                                     <em class="icon ni ni-plus"></em>
-                                    <span>Create</span></a><a href="{{ route('admin.subservice.create') }}"
+                                    <span>Create</span></a><a href="{{ route('admin.testimonial.create') }}"
                                     class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em
                                         class="icon ni ni-plus"></em></a>
                             </div>
@@ -71,34 +71,43 @@
                                     aria-describedby="DataTables_Table_2_info">
                                     <thead>
                                         <tr role="row">
-                                            <th>S/No</th>
-                                            <th>Service Name</th>
-                                            <th>Sub Service Name</th>
-                                            <th>Slug</th>
-                                            <th>Action</th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                style="width: 40.0469px;">SL.</th>
+                                            <th class="sorting" tabindex="0" aria-controls="supplierList" rowspan="1"
+                                                colspan="1" style="width: 162.609px;">Name</th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                style="width: 101.891px;">Status</th>
+                                            <th width="50px;" class="sorting" tabindex="0" aria-controls="supplierList"
+                                                rowspan="1" colspan="1" style="width: 50px;">Action
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($subservices as $index => $service)
-                                            <tr class="odd">
-                                                <td>{{ $loop->iteration }}</td> <!-- Serial number -->
-                                                <td>{{ $service->service->name }}</td>
-                                                <td>{{ $service->name }}</td>
-                                                <td>{{ $service->slug }}</td>
-                                                <td class="d-flex">
+                                        @foreach ($testimonials as $testimonial)
+                                        <tr class="odd">
+                                            <td>{{ $testimonial->id }}</td>
+                                            <td>{{ $testimonial->name }}</td>
+                                            <td>
+                                                @if($testimonial->status == 'active')
+                                                <span class="badge bg-success">Active</span>
+                                                @elseif ($service->status == 'inactive')
+                                                <span class="badge bg-danger">Inactive</span>
+                                                @endif
+                                            </td>
+                                            <td class="d-flex">
                                                     {{-- <a href="{{ route('admin.category.show',$category->id) }}"><i class="fa fa-eye p-2"></i></a> --}}
-                                                    <a href="{{ route('admin.subservice.edit',$service->id) }}"><i class="fa fa-pencil p-2"></i></a>
-                                                    <!-- Delete Button with Confirmation Alert -->
-                                                    <form action="{{ route('admin.subservice.destroy', $service->id) }}" method="POST" onsubmit="return confirmDelete()">
+                                                    <a href="{{ route('admin.testimonial.edit',$testimonial->id) }}"><i class="fa fa-pencil p-2"></i></a>
+                                                   <!-- Delete Button with Confirmation Alert -->
+                                                    <form action="{{ route('admin.testimonial.destroy', $testimonial->id) }}" method="POST" onsubmit="return confirmDelete()">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">
                                                             <i class="fa fa-trash p-0 m-0"></i>
                                                         </button>
                                                     </form>
-                                                </td>
-                                            </tr>
+                                        </tr>
                                         @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
