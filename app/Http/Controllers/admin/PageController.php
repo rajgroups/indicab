@@ -196,6 +196,9 @@ class PageController extends Controller
     public function edit(page $page)
     {
         //
+        $services = service::where('status','active')->get();
+        $locations = location::where('status','active')->get();
+        return view('admin.page.edit',compact('page','services','locations'));
     }
 
     /**
@@ -203,6 +206,42 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->all());
+        $request->validate([
+
+            // Image Data Validation
+            'og_image'                      => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            'banner_image'                  => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            'side_image'                    => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            'feature_image'                 => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+
+            // Data Validation
+            'seo_title'                     => 'required|string',
+            'seo_description'               => 'required|string',
+            'seo_keywords'                  => 'required|string',
+            'area'                          => 'required|string',
+            'city'                          => 'required|string',
+            'og_title'                      => 'required|string',
+            'og_description'                => 'required|string',
+            'first_title'                   => 'required|string',
+            'first_description'             => 'required|string',
+            'short_tag'                     => 'required|string',
+            'sub_category_service'          => 'required|string',
+            'service_location'              => 'required|string',
+            'price'                         => 'required|string',
+            'tesimonial'                    => 'required|string',
+            'faq'                           => 'required|string',
+            'first_content_title'           => 'required|string',
+            'first_content_description'     => 'required|string',
+            'content_short_tag'             => 'required|string',
+            'name'                          => 'required|string',
+            'slug'                          => 'required|unique:tbl_page,slug,'.$id,
+            'service'                       => 'required|string|exists:tbl_service,id',
+            'location'                      => 'required|string|exists:tbl_location,id',
+            'status'                        => 'required|in:active,inactive',
+            'description'                   => 'required|string',
+        ]);
+
         try {
             // Start Transaction
             DB::beginTransaction();

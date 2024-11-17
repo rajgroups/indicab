@@ -1,6 +1,47 @@
+{{-- @dd($post); --}}
 @extends('layouts.web.app')
-@section('content')
+@push('meta_tag')
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+{{-- <title>{{ $post->seo_title }}</title>
+<meta name="description" content="{{ $post->seo_description }}" />
+<meta name="keywords" content="{{ $post->seo_keywords }}" />
 
+<meta name="author" content="{{ $settings->meta_author }}"/>
+<meta name="copyright" content="{{ $settings->meta_copyright }}"/>
+<meta name="reply-to" content="{{ $settings->meta_reply_to }}"/>
+<meta name="expires" content="never"/>
+
+<meta name="theme-color" content="{{ $settings->meta_theme_color }}">
+<meta name="HandheldFriendly" content="{{ $settings->meta_handheld_friendly }}">
+<meta name="apple-mobile-web-app-capable" content="{{ $settings->meta_apple_web_app_capable }}">
+<meta name="apple-mobile-web-app-status-bar-style" content="{{ $settings->meta_apple_status_bar_style }}">
+<meta name="googlebot" content="{{ $settings->meta_googlebot}}"/>
+<meta name="allow-search" content="{{ $settings->meta_allow_search }}" />
+<meta name="revisit-after" content="{{ $settings->meta_revisit_after }}" />
+<meta name="distribution" content="{{ $settings->meta_distribution }}"/>
+
+<meta name="coverage" content="{{ $settings->meta_coverage }}" />
+<meta name="allow-search" content="{{ $settings->meta_allow_search }}" />
+<meta name="robots" content="{{ $settings->meta_robots }}"/> --}}
+{{-- For Facbook tags --}}
+{{-- <meta property="og:title" content="{{ $post->og_title }}" />
+<meta property="og:description" content="{{ $post->og_description }}" />
+<meta property="og:image" content="{{ asset('og_image/'.$post->og_image) }}" />
+<meta property="og:url" content="{{ url()->current() }}" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="INDICAB Packers and Movers" /> --}}
+{{-- For Twitter tags --}}
+{{-- <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $post->og_title }}" />
+<meta name="twitter:description" content="{{ $post->og_description }}" />
+<meta name="twitter:image" content="{{ asset('og_image/'.$post->og_image) }}" />
+<meta name="twitter:site" content="@YOUR_TWITTER_HANDLE" />
+<meta name="twitter:creator" content="@YOUR_TWITTER_HANDLE" /> --}}
+{{-- canonical --}}
+{{-- <link rel="canonical" href="{{ url()->current() }}" /> --}}
+@section('content')
 {{-- main content start --}}
 
 <section class="section home-banner home-five row-middle">

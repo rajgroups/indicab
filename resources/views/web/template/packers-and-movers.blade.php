@@ -47,7 +47,7 @@
     {{-- Main Content Start --}}
     <section class="section home-banner home-four row-middle">
       <div class="banner-float-img">
-         <img src="{{ asset('resource/web/assets/img/happy-young-man.png')}}" alt="Indicab Packers and Movers" title="indicab Packers and Movers">
+         <img src="{{ asset('resource/web/assets/img/happy-young-man.png')}}" alt="Indicab Packers and Movers {{ $post->city }} {{ $post->area }}" title="indicab Packers and Movers {{ $post->city }} {{ $post->area }}">
       </div>
       <div class="container">
          <div class="row align-items-center">
@@ -60,7 +60,7 @@
                     <p style="
                     font-size: 37px;
                     padding: 0px;
-                    margin: 0px;"><span class="fw-bolder">{{ $post->city }},{{ $post->area }}</span></p>
+                    margin: 0px;"><span class="fw-bolder">{{ $post->area }}, {{ $post->city }}</span></p>
                         <h1>{{ $post->first_title }}</h1>
                      <p>{{ $post->first_description }}</p>
                      <form class="form" name="store" id="store" method="post" action="">
@@ -72,7 +72,7 @@
                                  </select>
                               </span>
                               <input type="email" class="form-control" placeholder="90XXXXXXXX">
-                              <button class="btn btn-primary sub-btn" type="submit">Search</button>
+                              <button class="btn btn-primary sub-btn" type="submit">Ask Quote</button>
                            </div>
                         </div>
                      </form>
@@ -91,7 +91,7 @@
          </div>
          <div class="fullstack-blk aos" data-aos="fade-up">
             <div class="fullstacker-img">
-               <img src="{{ asset('resource/web/assets/img/user/indicab.png')}}" class="img-fluid" alt="Indicab Packers and Movers" title="indicab Packers and Movers">
+               <img src="{{ asset('resource/web/assets/img/user/indicab.png')}}" class="img-fluid" alt="Indicab Packers and Movers {{ $post->area }} {{ $post->city }}" title="indicab Packers and Movers {{ $post->area }} {{ $post->city }}">
                <span class="stacker-active"><i class="fas fa-check-circle"></i></span>
             </div>
             <div class="fullstacker-name">
@@ -107,7 +107,7 @@
                <span class="average-rating">5.0 (50 Review)</span>
             </div> --}}
          </div>
-         <div class="register-profesion aos" data-aos="fade-right">
+         {{-- <div class="register-profesion aos" data-aos="fade-right">
             <div class="avatar-group">
                <div class="avatar avatar-xs group_img group_header">
                   <img class="avatar-img rounded-circle" alt="User Image" src="{{ asset('resource/web/assets/img/user/avatar-1.jpg')}}">
@@ -123,7 +123,7 @@
                <p>Successfully 5000+ Jobs</p>
                <span>Get lowest price for household item move your new home</span>
             </div>
-         </div>
+         </div> --}}
       </div>
    </section>
 
@@ -147,7 +147,7 @@
                <div class="col-lg-3 col-md-6 col-6 aos  " data-aos="zoom-in" data-aos-duration="1000">
                   <div class="popular-catergories">
                      <div class="popular-catergories-img">
-                        <span><img src="{{ asset('subservice/'.$subservice->icon)}}" alt="Indicab Packers and movers Household shifting" title="Indicab Packers and movers Household shifting"></span>
+                        <span><img src="{{ asset('subservice/'.$subservice->icon)}}" alt="Indicab Packers and movers Household shifting {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers Household shifting {{ $post->city }} {{ $post->area }}"></span>
                      </div>
                      <div class="popular-catergories-content">
                         <h3 class="h6">{{ $subservice->name }}</h3>
@@ -179,7 +179,7 @@
             <div class="col-xl-3 col-md-6 aos d-flex" data-aos="zoom-in" data-aos-duration="1000">
                <div class="feature-items">
                   <div class="feature-icon">
-                     <img src="{{ asset('resource/web/assets/img/icon/great1.svg')}}" class="img-fluid" alt="Indicab Packers and movers" title="Indicab Packers and movers">
+                     <img src="{{ asset('resource/web/assets/img/icon/great1.svg')}}" class="img-fluid" alt="Indicab Packers and movers {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers {{ $post->city }} {{ $post->area }}">
                   </div>
                   <div class="feature-content course-count">
                      <h3>Well Packing</h3>
@@ -190,7 +190,7 @@
             <div class="col-xl-3 col-md-6 aos d-flex" data-aos="zoom-in" data-aos-duration="1500">
                <div class="feature-items ">
                   <div class="feature-icon">
-                     <img src="{{ asset('resource/web/assets/img/icon/great2.svg')}}" class="img-fluid" alt="Indicab Packers and movers" title="Indicab Packers and movers">
+                     <img src="{{ asset('resource/web/assets/img/icon/great2.svg')}}" class="img-fluid" alt="Indicab Packers and movers {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers {{ $post->city }} {{ $post->area }}">
                   </div>
                   <div class="feature-content course-count">
                      <h3>On-time shifting</h3>
@@ -201,7 +201,7 @@
             <div class="col-xl-3 col-md-6 aos d-flex" data-aos="zoom-in" data-aos-duration="2000">
                <div class="feature-items ">
                   <div class="feature-icon">
-                     <img src="{{ asset('resource/web/assets/img/icon/great3.svg')}}" class="img-fluid" alt="Indicab Packers and movers" title="Indicab Packers and movers">
+                     <img src="{{ asset('resource/web/assets/img/icon/great3.svg')}}" class="img-fluid" alt="Indicab Packers and movers {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers {{ $post->city }} {{ $post->area }}">
                   </div>
                   <div class="feature-content course-count">
                      <h3>Quality Work</h3>
@@ -212,7 +212,7 @@
             <div class="col-xl-3 col-md-6 aos d-flex" data-aos="zoom-in" data-aos-duration="2500">
                <div class="feature-items ">
                   <div class="feature-icon">
-                     <img src="{{ asset('resource/web/assets/img/icon/great4.svg')}}" class="img-fluid" alt="Indicab Packers and movers" title="Indicab Packers and movers">
+                     <img src="{{ asset('resource/web/assets/img/icon/great4.svg')}}" class="img-fluid" alt="Indicab Packers and movers {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers {{ $post->city }} {{ $post->area }}">
                   </div>
                   <div class="feature-content course-count">
                      <h3>Track Progress</h3>
@@ -261,7 +261,7 @@
             <div class="project-item project-item-feature aos" data-aos="fade-up">
                <a href="developer-details.html">
                   <div class="project-img heart-blk">
-                     <img src="{{ asset('location/'.$location->image)}}" class="img-fluid" alt="Indicab Packers and movers Tirupathi" title="Indicab Packers and movers Tirupathi">
+                     <img src="{{ asset('location/'.$location->image)}}" class="img-fluid" alt="Indicab Packers and movers {{ $location->name }}" title="Indicab Packers and movers {{ $location->name }}">
                      {{-- <span class="hour-dollr develop-dollr">$64 <small>/ hr</small></span> --}}
                   </div>
                </a>
@@ -288,7 +288,7 @@
                         <span class="average-rating">5.0</span>
                      </div>
                      <div>
-                        <a href="developer-details.html"><i class="feather-arrow-right"></i></a>
+                        <a href="developer-details.html" title=""><i class="feather-arrow-right"></i></a>
                      </div>
                   </div>
                </div>
@@ -307,7 +307,7 @@
          <div class="row">
             <div class="col-lg-6 col-md-12">
                <div class="markrt-place-img aos" data-aos="fade-up">
-                  <img src="{{ asset('resource/web/assets/img/indicab-packers-movers/indicab_packing_image.jpg')}} " class="img-fluid" alt="about Indicab Packers and movers" title="about Indicab Packers and movers">
+                  <img src="{{ asset('resource/web/assets/img/indicab-packers-movers/indicab_packing_image.jpg')}} " class="img-fluid" alt="about Indicab Packers and movers {{ $post->city }} {{ $post->area }}" title="about Indicab Packers and movers {{ $post->city }} {{ $post->area }}">
                </div>
             </div>
             <div class="col-lg-6 col-md-12 d-flex align-items-center">
@@ -315,7 +315,7 @@
                   <h2><span class="fw-bolder"> INDICAB </span> Packers Movers Leading Packers and Movers </h2>
                   <h5 class="text-secondary"><span class="fw-bolder"> INDICAB </span> Packers And Movers Why us?</h5>
                   <ul class="market-list-out">
-                     <li><i class="fa-solid fa-circle-check"></i> <h5 class="h6"> Delivery.</h5></li>
+                     <li><i class="fa-solid fa-circle-check"></i> <h5 class="h6"> On time Delivery.</h5></li>
                      <li><i class="fa-solid fa-circle-check"></i> <h5 class="h6"> Economical prices </h5></li>
                      <li><i class="fa-solid fa-circle-check"></i> <h5 class="h6"> Damage-proof packaging </h5></li>
                      <li><i class="fa-solid fa-circle-check"></i> <h5 class="h6"> Experienced Driver and Export Packing Member </h5></li>
@@ -338,7 +338,7 @@
             <div class="col-md-12 col-sm-12 col-12 mx-auto">
                <div class="section-header  section-locate aos" data-aos="fade-up">
                   <div>
-                     <h2 class="header-title"><span class="fw-bolder"> INDICAB </span> Best Packing and Moving Price</h2>
+                     <h2 class="header-title"><span class="fw-bolder"> INDICAB </span> Best Packing and Moving Price in {{ $post->area }}, {{ $post->city }}</h2>
                      <h5 class="h6 fw-bolder text-secondary fs-6">Affortable and Lowest Price</h5>
                   </div>
                </div>
@@ -383,7 +383,7 @@
             <div class="col-xl-3 col-md-6">
                <div class="great-card aos" data-aos="fade-up">
                   <div class="feature-icon mb-0 me-3">
-                     <img src="{{ asset('resource/web/assets/img/icon/great5.svg')}}" class="img-fluid" alt="Indicab Packers and movers Commercial Shifting" title="Indicab Packers and movers Commercial">
+                     <img src="{{ asset('resource/web/assets/img/icon/great5.svg')}}" class="img-fluid" alt="Indicab Packers and movers Commercial Shifting {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers Commercial {{ $post->city }} {{ $post->area }}">
                   </div>
                   <div class="feature-content course-count text-start">
                      <p class="counter-up fw-bolder fs-5">700</p>
@@ -394,7 +394,7 @@
             <div class="col-xl-3 col-md-6">
                <div class="great-card  aos" data-aos="fade-up">
                   <div class="feature-icon mb-0 me-3">
-                     <img src="{{ asset('resource/web/assets/img/icon/great6.svg')}}" class="img-fluid" alt="Indicab Packers and movers Commercial Shifting" title="Indicab Packers and movers Commercial">
+                     <img src="{{ asset('resource/web/assets/img/icon/great6.svg')}}" class="img-fluid" alt="Indicab Packers and movers Commercial Shifting {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers Commercial {{ $post->city }} {{ $post->area }}">
                   </div>
                   <div class="feature-content course-count text-start">
                      <h4><span class="counter-up">100 </span> +</h4>
@@ -405,7 +405,7 @@
             <div class="col-xl-3 col-md-6">
                <div class="great-card  aos" data-aos="fade-up">
                   <div class="feature-icon mb-0 me-3">
-                     <img src="{{ asset('resource/web/assets/img/icon/great7.svg')}}" class="img-fluid" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers Karnataka">
+                     <img src="{{ asset('resource/web/assets/img/icon/great7.svg')}}" class="img-fluid" alt="Indicab Packers and movers household Shifting {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers Karnataka {{ $post->city }} {{ $post->area }}">
                   </div>
                   <div class="feature-content course-count text-start">
                      <h4 class="counter-up">300</h4>
@@ -416,7 +416,7 @@
             <div class="col-xl-3 col-md-6">
                <div class="great-card  aos" data-aos="fade-up">
                   <div class="feature-icon mb-0 me-3">
-                     <img src="{{ asset('resource/web/assets/img/icon/great8.svg')}}" class="img-fluid" alt="Indicab Packers and movers Office Shifting" title="Indicab Packers and movers Karnataka">
+                     <img src="{{ asset('resource/web/assets/img/icon/great8.svg')}}" class="img-fluid" alt="Indicab Packers and movers Office Shifting {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers {{ $post->city }} {{ $post->area }}">
                   </div>
                   <div class="feature-content course-count text-start">
                      <h4 class="counter-up">100</h4>
@@ -435,7 +435,7 @@
             <div class="col-md-12 col-sm-12 col-12 mx-auto">
                <div class="section-header d-block  section-locate aos" data-aos="fade-up">
                   <div class="text-center">
-                     <h2 class="header-title">Our Service Location</h2>
+                     <h2 class="header-title">Our Service Location from {{ $post->area }}, {{ $post->city }}</h2>
                      <p>Find your favorite packers and movers and enjoy the benefits of a hassle-free move.</p>
                   </div>
                </div>
@@ -509,16 +509,16 @@
                <div class="row">
                   <div class="col-md-6 flex-fill">
                      <div class="markrt-place-img aos" data-aos="fade-up">
-                        <img src="{{ asset('resource/web/assets/img/indicab-packers-movers/left-side.jpg')}}" class="img-fluid" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers">
+                        <img src="{{ asset('resource/web/assets/img/indicab-packers-movers/left-side.jpg')}}" class="img-fluid" alt="Indicab Packers and movers household Shifting {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers {{ $post->city }} {{ $post->area }}">
                      </div>
                   </div>
                   <div class="col-md-6 flex-fill">
                      <div class="d-flex flex-column row-gap">
                         <div class="markrt-place-img aos" data-aos="fade-up">
-                           <img src="{{ asset('resource/web/assets/img/indicab-packers-movers/right_one.jpg')}}" class="img-fluid" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers">
+                           <img src="{{ asset('resource/web/assets/img/indicab-packers-movers/right_one.jpg')}}" class="img-fluid" alt="Indicab Packers and movers household Shifting {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers {{ $post->city }} {{ $post->area }}">
                         </div>
                         <div class="markrt-place-img aos" data-aos="fade-up">
-                           <img src="{{ asset('resource/web/assets/img/indicab-packers-movers/right_two.jpg')}}" class="img-fluid" alt="Indicab Packers and movers household Shifting" title="Indicab Packers and movers">
+                           <img src="{{ asset('resource/web/assets/img/indicab-packers-movers/right_two.jpg')}}" class="img-fluid" alt="Indicab Packers and movers household Shifting {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers {{ $post->city }} {{ $post->area }}">
                         </div>
                      </div>
                   </div>
@@ -603,7 +603,7 @@
                   <div class="faq-card aos" data-aos="fade-up">
                      <h4 class="faq-title">
                            <a class="collapseds" data-bs-toggle="collapse" href="#faq{{ $index }}" aria-expanded="true">
-                              {{ $faq->qustion }}23sadsadsad
+                              {{ $faq->qustion }}
                            </a>
                      </h4>
                      <div id="faq{{ $index }}" class="card-collapse collapse" data-bs-parent="#accordionExample">
@@ -615,7 +615,7 @@
             </div>
             <div class="col-lg-6">
                <div class="faq-imgs">
-                  <img src="{{ asset('resource/web/assets/img/indicab-packers-movers/inner-banner.jpg')}}" alt="Indicab Packers and movers" title="Indicab Packers and movers">
+                  <img src="{{ asset('resource/web/assets/img/indicab-packers-movers/inner-banner.jpg')}}" alt="Indicab Packers and movers {{ $post->city }} {{ $post->area }}" title="Indicab Packers and movers {{ $post->city }} {{ $post->area }}" width="100%">
                </div>
             </div>
          </div>
@@ -623,5 +623,4 @@
    </section>
    @endif
   {{-- Main Content End --}}
-    
 @endsection

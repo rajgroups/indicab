@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\admin\CarController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\auth\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -82,6 +84,20 @@ Route::prefix('admin')->group(function(){
             Route::get('/inactive',[PriceController::class,'inactive'])->name('.inactive');
         });
         Route::resource('price', PriceController::class);
+
+        // Car Managment Module
+        Route::prefix('car')->name('car')->group(function(){
+            Route::get('/active',[CarController::class,'active'])->name('.active');
+            Route::get('/inactive',[CarController::class,'inactive'])->name('.inactive');
+        });
+        Route::resource('car', CarController::class);
+        
+        // Blog Managment Module
+        Route::prefix('blog')->name('blog')->group(function(){
+            Route::get('/active',[BlogController::class,'active'])->name('.active');
+            Route::get('/inactive',[BlogController::class,'inactive'])->name('.inactive');
+        });
+        Route::resource('blog', BlogController::class);
         
         // CMS Managment Route System 
         Route::get('/page/create',function(){ return view('admin.page.create');});

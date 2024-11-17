@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\page;
 use App\Models\service;
+use App\Models\car;
 use App\Models\subservice;
 use App\Models\testimonial;
 use App\Enums\servicestatus;
+use App\Models\blog;
 use App\Models\faq;
 use App\Models\location;
 use App\Models\price;
@@ -29,32 +31,44 @@ class HomeController extends Controller
     {
         try{
 
-            // Service Testionial
-            $faqs = faq::where('status', servicestatus::ACTIVE->value)->get();
+            $template = null;
 
             // Service Testionial
             $testimonials = testimonial::where('status', servicestatus::ACTIVE->value)->get();
 
-            // Service Data
+            // Price Data
             $prices = price::where('status',servicestatus::ACTIVE->value)->get();
+
+            // Price Data
+            $cars = car::where('status',servicestatus::ACTIVE->value)->get();
+            // dd($cars);
 
             $locations = location::where('status',servicestatus::ACTIVE->value)->get();
             // dd($location);
 
             $services = service::where('slug',$service)->first();
             // Retrieve the page data based on the slug
+            $template = $services->slug;
+            // dd($template);
 
              // Retrieve Sub Service Details
              $subservices = subservice::where('service_id',$services->id)->get(); 
             //  dd($subservices);
 
-            $post = Page::where('service_id',$services->id)->where('slug', $slug)->with(['service', 'location'])->first();
+            // Service Testionial
+            $faqs = faq::where('status', servicestatus::ACTIVE->value)->where('service_id',$services->id)->get();
 
+            // Blog Post for this service
+            $blogs = blog::where('status', servicestatus::ACTIVE->value)->where('service_id',$services->id)->latest()->limit(3)->get();
+
+            // dd($services->id);
+            $post = Page::where('service_id',$services->id)->where('slug', $slug)->with(['service', 'location'])->first();
+            // dd($post);
             // Assign $this->settings to a local variable
             $settings = $this->settings;
 
             // Pass both post and settings variables to the view
-            return view('web.page', compact('post', 'settings','subservices','locations','prices','testimonials','faqs'));
+            return view('web.template.' . $template , compact('post', 'settings','subservices','locations','prices','testimonials','faqs','cars','blogs'));
         }catch(\Exception $e){
             dd($e);
         }
@@ -80,4 +94,9 @@ class HomeController extends Controller
     {
         return view('web.cab');
     }
+
+    public function indicab_packers_movers(){
+        return view('web.packers');
+    }
+    
 }

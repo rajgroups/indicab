@@ -9,7 +9,7 @@
                             <div class="nk-block-head-content">
                                 <h3 class="nk-block-title page-title">Home /
                                     <strong class="text-primary small">service/
-                                        <strong class="text-primary small">list/
+                                        <strong class="text-primary small">Inactive list/
                                         </strong>
                                 </h3>
                                 <div class="nk-block-des text-soft">
@@ -28,10 +28,10 @@
                             </div>
 
                             <div class="nk-block-head-content">
-                                <a href="{{ route('admin.page.create') }}"
+                                <a href="{{ route('admin.location.create') }}"
                                     class="btn btn-outline-light bg-white d-none d-sm-inline-flex">
                                     <em class="icon ni ni-plus"></em>
-                                    <span>Create</span></a><a href="{{ route('admin.page.create') }}"
+                                    <span>Create</span></a><a href="{{ route('admin.location.create') }}"
                                     class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em
                                         class="icon ni ni-plus"></em></a>
                             </div>
@@ -71,31 +71,34 @@
                                     aria-describedby="DataTables_Table_2_info">
                                     <thead>
                                         <tr role="row">
-                                            <th>SL.</th>
-                                            <th>Name</th>
-                                            <th>Slug</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                style="width: 40.0469px;">SL.</th>
+                                            <th class="sorting" tabindex="0" aria-controls="supplierList" rowspan="1"
+                                                colspan="1" style="width: 162.609px;">Name</th>
+                                            <th class="sorting_disabled" rowspan="1" colspan="1"
+                                                style="width: 101.891px;">Status</th>
+                                            <th width="50px;" class="sorting" tabindex="0" aria-controls="supplierList"
+                                                rowspan="1" colspan="1" style="width: 50px;">Action
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($pages as $page)
+                                        @foreach ($locations as $service)
                                         <tr class="odd">
-                                            <td>{{ $page->id }}</td>
-                                            <td>{{ $page->slug_name }}</td>
-                                            <td>{{ $page->slug }}</td>
+                                            <td>{{ $service->id }}</td>
+                                            <td>{{ $service->name }}</td>
                                             <td>
-                                                @if($page->status == 'active')
+                                                @if($service->status == 'active')
                                                 <span class="badge bg-success">Active</span>
-                                                @elseif ($page->status == 'inactive')
+                                                @elseif ($service->status == 'inactive')
                                                 <span class="badge bg-danger">Inactive</span>
                                                 @endif
                                             </td>
                                             <td class="d-flex">
                                                     {{-- <a href="{{ route('admin.category.show',$category->id) }}"><i class="fa fa-eye p-2"></i></a> --}}
-                                                    <a href="{{ route('admin.page.edit',$page->id) }}"><i class="fa fa-pencil p-2"></i></a>
+                                                    <a href="{{ route('admin.location.edit',$service->id) }}"><i class="fa fa-pencil p-2"></i></a>
                                                    <!-- Delete Button with Confirmation Alert -->
-                                                    <form action="{{ route('admin.page.destroy', $page->id) }}" method="POST" onsubmit="return confirmDelete()">
+                                                    <form action="{{ route('admin.location.destroy', $service->id) }}" method="POST" onsubmit="return confirmDelete()">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">

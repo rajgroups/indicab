@@ -8,7 +8,7 @@
                         <div class="nk-block-between g-3">
                             <div class="nk-block-head-content">
                                 <h3 class="nk-block-title page-title">Home /
-                                    <strong class="text-primary small">service/
+                                    <strong class="text-primary small">Price/
                                         <strong class="text-primary small">list/
                                         </strong>
                                 </h3>
@@ -28,10 +28,10 @@
                             </div>
 
                             <div class="nk-block-head-content">
-                                <a href="{{ route('admin.page.create') }}"
+                                <a href="{{ route('admin.price.create') }}"
                                     class="btn btn-outline-light bg-white d-none d-sm-inline-flex">
                                     <em class="icon ni ni-plus"></em>
-                                    <span>Create</span></a><a href="{{ route('admin.page.create') }}"
+                                    <span>Create</span></a><a href="{{ route('admin.price.create') }}"
                                     class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em
                                         class="icon ni ni-plus"></em></a>
                             </div>
@@ -71,40 +71,34 @@
                                     aria-describedby="DataTables_Table_2_info">
                                     <thead>
                                         <tr role="row">
-                                            <th>SL.</th>
+                                            <th>S/No</th>
                                             <th>Name</th>
+                                            <th>Price</th>
                                             <th>Slug</th>
-                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($pages as $page)
-                                        <tr class="odd">
-                                            <td>{{ $page->id }}</td>
-                                            <td>{{ $page->slug_name }}</td>
-                                            <td>{{ $page->slug }}</td>
-                                            <td>
-                                                @if($page->status == 'active')
-                                                <span class="badge bg-success">Active</span>
-                                                @elseif ($page->status == 'inactive')
-                                                <span class="badge bg-danger">Inactive</span>
-                                                @endif
-                                            </td>
-                                            <td class="d-flex">
+                                        @foreach ($cars as $index => $car)
+                                            <tr class="odd">
+                                                <td>{{ $loop->iteration }}</td> <!-- Serial number -->
+                                                <td>{{ $car->name }}</td>
+                                                <td>{{ $car->price }}</td>
+                                                <td>{{ $car->slug }}</td>
+                                                <td class="d-flex">
                                                     {{-- <a href="{{ route('admin.category.show',$category->id) }}"><i class="fa fa-eye p-2"></i></a> --}}
-                                                    <a href="{{ route('admin.page.edit',$page->id) }}"><i class="fa fa-pencil p-2"></i></a>
-                                                   <!-- Delete Button with Confirmation Alert -->
-                                                    <form action="{{ route('admin.page.destroy', $page->id) }}" method="POST" onsubmit="return confirmDelete()">
+                                                    <a href="{{ route('admin.car.edit',$car->id) }}"><i class="fa fa-pencil p-2"></i></a>
+                                                    <!-- Delete Button with Confirmation Alert -->
+                                                    <form action="{{ route('admin.car.destroy', $car->id) }}" method="POST" onsubmit="return confirmDelete()">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">
                                                             <i class="fa fa-trash p-0 m-0"></i>
                                                         </button>
                                                     </form>
-                                        </tr>
+                                                </td>
+                                            </tr>
                                         @endforeach
-
                                     </tbody>
                                 </table>
                             </div>

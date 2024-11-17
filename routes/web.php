@@ -1,13 +1,9 @@
 <?php
 
 use App\Http\Controllers\web\HomeController;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
-use App\Livewire\ContactUs;
-use App\Livewire\PackersAndMovers;
-
-
+use App\Models\settings;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,10 +35,19 @@ Route::get('/all-clear', function () {
 Route::get('/',[HomeController::class,'index'])->name('index');
 Route::get('/all_services',[HomeController::class,'all_services'])->name('all_services');
 Route::get('/tempo_service',[HomeController::class,'tempo_service'])->name('tempo_service');
-Route::get('/indicab-packers-movers',[HomeController::class,'packers_movers'])->name('packers_movers');
+Route::get('/indicab-packers-movers',[HomeController::class,'indicab_packers_movers'])->name('packers_movers');
 Route::get('/cab',[HomeController::class,'cab'])->name('cab');
 
 Route::get('/about',[HomeController::class,'about'])->name('about');
 
 // Route::get('/{category}/{slug}',)
 Route::get('/{service?}/{slug}',[HomeController::class,'post'])->name('web.post');
+
+// Devalopment Route
+Route::get('/development',function(){
+
+    // Assign $this->settings to a local variable
+    $settings = settings::first();
+
+    return view('web.template.cab', compact('settings'));
+});

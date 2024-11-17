@@ -33,4 +33,21 @@ class service extends Model
     {
         return $this->hasMany(price::class, 'service_id');
     }
+
+    // Define the inverse relationship with the Car model
+    public function cars()
+    {
+        return $this->hasMany(car::class, 'service_id');
+    }
+
+    /**
+     * Define the relationship with the Blog model.
+     * A service has many blogs.
+     */
+    public function blogs()
+    {
+        return $this->hasMany(blog::class, 'service_id');
+    }
+
+    
 }
