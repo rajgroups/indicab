@@ -58,13 +58,13 @@
                       {{-- Page Module System --}}
                       <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle"><span class="nk-menu-icon">
-                            <em class="icon icon ni ni-building"></em></span><span class="nk-menu-text">Pae</span>
+                            <em class="icon icon ni ni-building"></em></span><span class="nk-menu-text">Page</span>
                         </a>
                         <ul class="nk-menu-sub">    
-                           <li class="nk-menu-item"><a href="{{ route('admin.location.create') }}" class="nk-menu-link"><span class="nk-menu-text">Create</span></a></li>
-                           <li class="nk-menu-item"><a href="{{ route('admin.location.index') }}" class="nk-menu-link"><span class="nk-menu-text">List</span></a></li>
-                           <li class="nk-menu-item"><a href="{{ route('admin.location.active') }}" class="nk-menu-link"><span class="nk-menu-text">Active</span></a></li>
-                           <li class="nk-menu-item"><a href="{{ route('admin.location.inactive') }}" class="nk-menu-link"><span class="nk-menu-text">Inactive</span></a></li>
+                           <li class="nk-menu-item"><a href="{{ route('admin.page.create') }}" class="nk-menu-link"><span class="nk-menu-text">Create</span></a></li>
+                           <li class="nk-menu-item"><a href="{{ route('admin.page.index') }}" class="nk-menu-link"><span class="nk-menu-text">List</span></a></li>
+                           <li class="nk-menu-item"><a href="{{ route('admin.page.active') }}" class="nk-menu-link"><span class="nk-menu-text">Active</span></a></li>
+                           <li class="nk-menu-item"><a href="{{ route('admin.page.inactive') }}" class="nk-menu-link"><span class="nk-menu-text">Inactive</span></a></li>
                         </ul>
                      </li>
                     @endif

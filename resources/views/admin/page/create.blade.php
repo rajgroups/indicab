@@ -615,13 +615,13 @@
             minHeight: 200, // Set minimum height (in pixels)
             maxHeight: 500, // Set maximum height (in pixels)
             placeholder: 'Enter a detailed description...',
-            toolbar: [
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'superscript', 'subscript']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
+            // toolbar: [
+            //     ['style', ['bold', 'italic', 'underline', 'clear']],
+            //     ['font', ['strikethrough', 'superscript', 'subscript']],
+            //     ['para', ['ul', 'ol', 'paragraph']],
+            //     ['insert', ['link', 'picture', 'video']],
+            //     ['view', ['fullscreen', 'codeview', 'help']]
+            // ]
         });
 
         $('#feature_image').change(function (e) {
