@@ -40,7 +40,7 @@
 <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE" />
 <meta name="twitter:creator" content="@YOUR_TWITTER_HANDLE" />
 {{-- canonical --}}
-{{-- {{-- <link rel="canonical" href="{{ url()->current() }}" /> --}}
+<link rel="canonical" href="{{ url()->current() }}" /> 
 @section('content')
 {{-- main content start --}}
    {{-- Banner Section --}}
@@ -124,8 +124,8 @@
             <div class="col-md-12 col-sm-12 col-12 mx-auto">
                <div class="section-header section-header-three section-locate aos" data-aos="fade-up">
                   <div>
-                     <span class="badge title-badge">Projects By Category</span>
-                     <h2 class="header-title">Get work done in over 60 different categories</h2>
+                     <span class="badge title-badge">The Best Car Services Await You</span>
+                     <h2 class="header-title">Book Local Taxi in Rajaji Nagar Bangalore with Indicab Cabs</h2>
                   </div>
                </div>
             </div>
@@ -145,7 +145,9 @@
                      <p>{{ \Illuminate\Support\Str::words($car->short_description, 12, '...') }}</p>
                      <div class="category-foot">
                         <span>₹ {{ $car->price_ratio }}/Km</span>
-                        <a href="project.html"><i class="feather-arrow-right"></i></a>
+                        <span class="font-secondary small"><img src="{{ asset('icon/iconSeat.svg') }}" alt="" srcset=""> {{ $car->passanger }}</span>
+                        <span class="font-secondary small"><img src="{{ asset('icon/iconTransmission.svg') }}" alt="" srcset=""> {{ $car->transmission }}</span>
+                        <span class="font-secondary small"><img src="{{ asset('icon/iconDiesel.svg') }}" alt="" srcset=""> {{ $car->fuel_type }}</span>
                      </div>
                   </div>
                </div>

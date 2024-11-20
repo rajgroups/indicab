@@ -197,6 +197,28 @@
                                                             @enderror
                                                         </div>
                                                     </div>
+
+                                                    <!-- vahicle type -->
+                                                    <div class="form-group row">    
+                                                        <label for="vehicle_type" class="col-sm-4 tex   t-right col-form-label">Car Type <i class="text-danger">* </i>:</label>
+                                                        <div class="col-sm-8">
+                                                            <select name="vehicle_type" id="vehicle_type" class="form-select @error('vehicle_type') is-invalid @enderror" required>
+                                                                    <option value="sedan">sedan</option>
+                                                                    <option value="hatchback">hatchback</option>
+                                                                    <option value="suv">SUV</option>
+                                                                    <option value="coupe">Coupe</option>
+                                                                    <option value="convertible">convertible</option>
+                                                                    <option value="microcar">Microcar</option>
+                                                                    <option value="luxury">Luxury</option>
+                                                            </select>
+                                                            <div class="valid-feedback"> Looks good! </div>
+                                                            <div class="invalid-feedback">This field is required.</div>
+                                                            @error('vehicle_type')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                                 <div class="col-md-6">
                                                     
