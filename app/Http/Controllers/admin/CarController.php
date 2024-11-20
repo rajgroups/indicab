@@ -44,9 +44,10 @@ class CarController extends Controller
         $request->validate([
             'service_id'            => 'required|integer|exists:tbl_service,id',
             'name'                  => 'required|string|max:255',
+            'vehicle_type'          => 'nullable|string|in:sedan,hatchback,suv,coupe,convertible,microcar,luxury',
             'price'                 => 'required|numeric|min:0',
             'item_ratio'            => 'nullable|string|min:0',
-            'price_ratio'           => 'nullable|numeric|min:0',
+            'price_ratio'           => 'nullable|string|min:0',
             'slug'                  => 'required|string|max:255|unique:tbl_car,slug',
             'image'                 => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'icon'                  => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -91,7 +92,7 @@ class CarController extends Controller
             // Create the price entry
             car::create([
                 "slug"                  => $slug,
-                "vehicle_type"          =>'car',
+                "vehicle_type"          => $request->vehicle_type,
                 "service_id"            => $request->service_id,
                 "name"                  => $request->name,
                 "price"                 => $request->price,

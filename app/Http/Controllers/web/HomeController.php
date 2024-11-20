@@ -40,7 +40,7 @@ class HomeController extends Controller
             $prices = price::where('status',servicestatus::ACTIVE->value)->get();
 
             // Price Data
-            $cars = car::where('status',servicestatus::ACTIVE->value)->get();
+            $cars = car::where('status',servicestatus::ACTIVE->value)->limit(12)->get();
             // dd($cars);
 
             $locations = location::where('status',servicestatus::ACTIVE->value)->get();
