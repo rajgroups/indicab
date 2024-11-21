@@ -1,5 +1,8 @@
 @extends('layouts.admin.app')
 @section('content')
+@push('css')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">   
+@endpush
     <div class="nk-content ">
         <div class="container-fluid">
             <div class="nk-content-inner">
@@ -8,8 +11,8 @@
                         <div class="nk-block-between g-3">
                             <div class="nk-block-head-content">
                                 <h3 class="nk-block-title page-title">Home /
-                                    <strong class="text-primary small">Sub Service/
-                                        <strong class="text-primary small">create/
+                                    <strong class="text-primary small">Price /
+                                        <strong class="text-primary small">Update/
                                         </strong>
                                 </h3>
                                 <div class="nk-block-des text-soft">
@@ -27,10 +30,10 @@
                                 </div>
                             </div>
                             <div class="nk-block-head-content">
-                                <a href="{{ route('admin.subservice.index') }}"
+                                <a href="{{ route('admin.price.index') }}"
                                     class="btn btn-outline-light bg-white d-none d-sm-inline-flex">
                                     <em class="icon ni ni-arrow-left"></em>
-                                    <span>Back</span></a><a href="{{ route('admin.subservice.index') }}"
+                                    <span>Back</span></a><a href="{{ route('admin.price.index') }}"
                                     class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em
                                         class="icon ni ni-arrow-left"></em></a>
                             </div>
@@ -43,7 +46,7 @@
                                 <div class="panel panel-bd lobidrag">
                                     <div class="panel-heading card-header">
                                         <div class="panel-title card-title">
-                                            <h4>Add Sub Service </h4>
+                                            <h4>Update Price </h4>
                                         </div>
                                     </div>
                                     <div class="panel-body card-body">
@@ -74,16 +77,16 @@
                                             </div>
                                         @endif
 
-                                        <form action="{{ route('admin.subservice.update',$subservice->id) }}" class="form-validate" method="post" id="service_form" novalidate="novalidate" enctype="multipart/form-data">
+                                        <form action="{{ route('admin.price.update',$price->id) }}" class="form-validate" method="post" id="service_form" novalidate="novalidate" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <!-- Category Name -->
                                                     <div class="form-group row">
-                                                        <label for="name" class="col-sm-4 text-right col-form-label">Sub Service Name <i class="text-danger">*</i>:</label>
+                                                        <label for="name" class="col-sm-4 text-right col-form-label">Price Name(Title)<i class="text-danger">*</i>:</label>
                                                         <div class="col-sm-8">
-                                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Sub Service Name" value="{{ old('name',$subservice->name) }}" required>
+                                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Price Name title" value="{{ old('name',$price->name) }}" required>
                                                             {{-- <span class="invalid">This field is required.</span> --}}
                                                             <div class="valid-feedback"> Looks good! </div>
                                                             <div class="invalid-feedback">This field is required.</div>
@@ -93,11 +96,53 @@
                                                         </div>
                                                     </div>
 
+                                                     <!-- price Details -->
+                                                     <div class="form-group row">
+                                                        <label for="price" class="col-sm-4 text-right col-form-label">Price<i class="text-danger">*</i>:</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" id="price" placeholder="price" value="{{ old('price',$price->price) }}" required>
+                                                            {{-- <span class="invalid">This field is required.</span> --}}
+                                                            <div class="valid-feedback"> Looks good! </div>
+                                                            <div class="invalid-feedback">This field is required.</div>
+                                                            @error('price')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                     <!-- Item Ratio Details -->
+                                                     <div class="form-group row">
+                                                        <label for="item_ratio" class="col-sm-4 text-right col-form-label">item Ratio<i class="text-danger">*</i>:</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" name="item_ratio" class="form-control @error('item_ratio') is-invalid @enderror" id="item_ratio" placeholder="item_ratio" value="{{ old('item_ratio',$price->item_ratio) }}" required>
+                                                            {{-- <span class="invalid">This field is required.</span> --}}
+                                                            <div class="valid-feedback"> Looks good! </div>
+                                                            <div class="invalid-feedback">This field is required.</div>
+                                                            @error('item_ratio')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                     <!-- Item Ratio Details -->
+                                                     <div class="form-group row">
+                                                        <label for="price_ratio" class="col-sm-4 text-right col-form-label">Price Ratio<i class="text-danger">*</i>:</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" name="price_ratio" class="form-control @error('price_ratio') is-invalid @enderror" id="price_ratio" placeholder="price_ratio" value="{{ old('price_ratio',$price->price_ratio) }}" required>
+                                                            {{-- <span class="invalid">This field is required.</span> --}}
+                                                            <div class="valid-feedback"> Looks good! </div>
+                                                            <div class="invalid-feedback">This field is required.</div>
+                                                            @error('price_ratio')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
                                                     <!-- Service Slug Name -->
                                                     <div class="form-group row">
-                                                        <label for="slug" class="col-sm-4 text-right col-form-label">Sub Service Slug <i class="text-danger">*</i>:</label>
+                                                        <label for="slug" class="col-sm-4 text-right col-form-label">Price Slug <i class="text-danger">*</i>:</label>
                                                         <div class="col-sm-8">
-                                                            <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror" id="slug" placeholder="Sub Service slug" value="{{ old('slug',$subservice->slug) }}" required>
+                                                            <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror" id="slug" placeholder="Price slug" value="{{ old('slug',$price->slug) }}" required>
                                                             {{-- <span class="invalid">This field is required.</span> --}}
                                                             <div class="valid-feedback"> Looks good! </div>
                                                             <div class="invalid-feedback">This field is required.</div>
@@ -134,17 +179,14 @@
                                                             @enderror
                                                         </div>  
                                                     </div>
-
-
-                                                    <!-- Status -->
+                                                    
+                                                    <!-- Service -->
                                                     <div class="form-group row">    
                                                         <label for="status" class="col-sm-4 text-right col-form-label">Service <i class="text-danger">* </i>:</label>
                                                         <div class="col-sm-8">
                                                             <select name="service_id" id="service_id" class="form-select @error('service_id') is-invalid @enderror" required>
-                                                                <option value="">None</option>
                                                                 @foreach ($services as $service)
-                                                                
-                                                                    <option value="{{ $service->id }}" {{ old('service_id',$subservice->service_id) == $service->name ? 'selected' : '' }}>{{ $service->name }}</option>    
+                                                                    <option value="{{ $service->id }}" {{ old('service_id',$price->service_id) == $service->name ? 'selected' : '' }}>{{ $service->name }}</option>    
                                                                 @endforeach
                                                             </select>
                                                             <div class="valid-feedback"> Looks good! </div>
@@ -156,10 +198,48 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-12">
-                                                            <label for="description" class="text-right col-form-label">Image <i class="text-danger">* </i>:</label>
-                                                            <img src="{{ asset('location/default.png') }}" alt="Location Image" id="location-image-preview">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group row">
+                                                                <div class="col-sm-6">
+                                                                    <label for="image" class="text-right col-form-label">Image <i class="text-danger">* </i>:</label>
+                                                                    <img src="{{ asset('price_image/'.$price->image) }}" alt="Location Image" id="location-image-preview">
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <label for="image" class="text-right col-form-label">Icon <i class="text-danger">* </i>:</label>
+                                                                    <img src="{{ asset('price_image/'.$price->icon) }}" alt="Location Image" id="location-image-preview">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-12">
+                                                                <label for="short_description" class="text-right col-form-label">Short Description <i class="text-danger">* </i>:</label>
+                                                                <textarea name="short_description" id="short_description" class="form-control short_description" cols="30" rows="10" placeholder="Please Enter the Price Description" required>{{ $price->short_description }}</textarea>
+                                                                {{-- <span class="invalid">This field is required.</span> --}}
+                                                                <div class="valid-feedback"> Looks good! </div>
+                                                                <div class="invalid-feedback">This field is required.</div>
+                                                                @error('short_description')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-12">
+                                                                <label for="description" class="text-right col-form-label">Description <i class="text-danger">* </i>:</label>
+                                                                <textarea name="description" id="description" class="form-control description" cols="30" rows="10" placeholder="Please Enter the location Description" required>{{ $price->description }}</textarea>
+                                                                {{-- <span class="invalid">This field is required.</span> --}}
+                                                                <div class="valid-feedback"> Looks good! </div>
+                                                                <div class="invalid-feedback">This field is required.</div>
+                                                                @error('description')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -168,7 +248,7 @@
                                             <div class="form-group row mt-3">
                                                 <div class="col-sm-6 text-right">
                                                     <button type="submit" class="btn btn-success">Save</button>
-                                                    <a href="{{ route('admin.subservice.create') }}"></a> <button type="submit" class="btn btn-success" name="add-another">Save And Add Another</button>
+                                                    <a href="{{ route('admin.price.create') }}"></a> <button type="submit" class="btn btn-success" name="add-another">Save And Add Another</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -183,12 +263,17 @@
     </div>
 @endsection
 @push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
     <script>
         $(document).ready(function () {
+        
+        // Rich Text Area
+        $('#description').summernote();
+
         $('#name').on('keyup', function () {
             var slug = $(this).val()
                 .toLowerCase() // Convert to lowercase
-                .replace(/[^a-z\s]/g, '') // Remove non-alphabetic characters
+                .replace(/[^a-z0-9\s]/g, '') // Remove non-alphabetic characters
                 .trim() // Remove leading and trailing spaces
                 .replace(/\s+/g, '-'); // Replace spaces with hyphens
 

@@ -179,8 +179,7 @@
                                                             @enderror
                                                         </div>  
                                                     </div>
-
-
+                                                    
                                                     <!-- Service -->
                                                     <div class="form-group row">    
                                                         <label for="status" class="col-sm-4 text-right col-form-label">Service <i class="text-danger">* </i>:</label>
