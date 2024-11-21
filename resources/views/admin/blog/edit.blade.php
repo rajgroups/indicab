@@ -1,6 +1,6 @@
-{{-- @dd($location) --}}
 @extends('layouts.admin.app')
 @section('content')
+
 @push('css')
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">   
 @endpush
@@ -13,7 +13,7 @@
                             <div class="nk-block-head-content">
                                 <h3 class="nk-block-title page-title">Home /
                                     <strong class="text-primary small">Location/
-                                        <strong class="text-primary small">Edit/
+                                        <strong class="text-primary small">create/
                                         </strong>
                                 </h3>
                                 <div class="nk-block-des text-soft">
@@ -31,10 +31,10 @@
                                 </div>
                             </div>
                             <div class="nk-block-head-content">
-                                <a href="{{ route('admin.location.index') }}"
+                                <a href="{{ route('admin.blog.index') }}"
                                     class="btn btn-outline-light bg-white d-none d-sm-inline-flex">
                                     <em class="icon ni ni-arrow-left"></em>
-                                    <span>Back</span></a><a href="{{ route('admin.location.index') }}"
+                                    <span>Back</span></a><a href="{{ route('admin.blog.index') }}"
                                     class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em
                                         class="icon ni ni-arrow-left"></em></a>
                             </div>
@@ -47,7 +47,7 @@
                                 <div class="panel panel-bd lobidrag">
                                     <div class="panel-heading card-header">
                                         <div class="panel-title card-title">
-                                            <h4>Edit Location </h4>
+                                            <h4>Create Your Blog Content </h4>
                                         </div>
                                     </div>
                                     <div class="panel-body card-body">
@@ -78,20 +78,20 @@
                                             </div>
                                         @endif
 
-                                        <form action="{{ route('admin.location.update',$location->id) }}" class="form-validate" method="post" id="location_form" novalidate="novalidate" enctype="multipart/form-data">
+                                        <form action="{{ route('admin.blog.update',$blog->id) }}" class="form-validate" method="post" id="location_form" novalidate="novalidate" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                      <!-- Location Name -->
                                                     <div class="form-group row">
-                                                        <label for="name" class="col-sm-4 text-right col-form-label">Location Name <i class="text-danger">*</i>:</label>
+                                                        <label for="title" class="col-sm-4 text-right col-form-label">Title <i class="text-danger">*</i>:</label>
                                                         <div class="col-sm-8">
-                                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Location Name" value="{{ old('name',$location->name) }}" required>
+                                                            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="blog title" value="{{ old('title',$blog->title) }}" required>
                                                             {{-- <span class="invalid">This field is required.</span> --}}
                                                             <div class="valid-feedback"> Looks good! </div>
                                                             <div class="invalid-feedback">This field is required.</div>
-                                                            @error('name')
+                                                            @error('title')
                                                                 <span class="invalid-feedback">{{ $message }}</span>
                                                             @enderror
                                                         </div>
@@ -99,9 +99,9 @@
 
                                                     <!-- Location Slug Name -->
                                                     <div class="form-group row">
-                                                        <label for="slug" class="col-sm-4 text-right col-form-label">Location Slug <i class="text-danger">*</i>:</label>
+                                                        <label for="slug" class="col-sm-4 text-right col-form-label">blog Slug <i class="text-danger">*</i>:</label>
                                                         <div class="col-sm-8">
-                                                            <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror" id="slug" placeholder="Location slug" value="{{ old('slug',$location->slug) }}" required>
+                                                            <input type="text" name="slug" class="form-control @error('slug') is-invalid @enderror" id="slug" placeholder="Blog slug" value="{{ old('slug',$blog->slug) }}" required>
                                                             {{-- <span class="invalid">This field is required.</span> --}}
                                                             <div class="valid-feedback"> Looks good! </div>
                                                             <div class="invalid-feedback">This field is required.</div>
@@ -113,7 +113,7 @@
 
                                                      <!--Location Image -->
                                                      <div class="form-group row">
-                                                        <label for="image" class="col-sm-4 text-right col-form-label">Image:</label>
+                                                        <label for="image" class="col-sm-4 text-right col-form-label">Image <i class="text-danger">*</i>:</label>
                                                         <div class="col-sm-8">
                                                             <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" placeholder="Service slug" value="{{ old('image') }}">
                                                             {{-- <span class="invalid">This field is required.</span> --}}
@@ -125,13 +125,30 @@
                                                         </div>  
                                                     </div>
 
+                                                    <!-- Service -->
+                                                    <div class="form-group row">    
+                                                        <label for="status" class="col-sm-4 text-right col-form-label">Service <i class="text-danger">* </i>:</label>
+                                                        <div class="col-sm-8">
+                                                            <select name="service_id" id="service_id" class="form-select @error('service_id') is-invalid @enderror" required>
+                                                                @foreach ($services as $service)
+                                                                    <option value="{{ $service->id }}" {{ old('service_id',$blog->service_id) == $service->name ? 'selected' : '' }}>{{ $service->name }}</option>    
+                                                                @endforeach
+                                                            </select>
+                                                            <div class="valid-feedback"> Looks good! </div>
+                                                            <div class="invalid-feedback">This field is required.</div>
+                                                            @error('service_id')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
                                                      <!-- Location Status -->
                                                     <div class="form-group row">
                                                         <label for="status" class="col-sm-4 text-right col-form-label">Status <i class="text-danger">* </i>:</label>
                                                         <div class="col-sm-8">
                                                             <select name="status" id="status" class="form-select @error('status') is-invalid @enderror" required>
-                                                                <option value="active" {{ old('status',$location->status) == 'active' ? 'selected' : '' }}>Active</option>
-                                                                <option value="inactive" {{ old('status',$location->status) == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                                                                <option value="active" {{ old('status',$blog->status) == 'active' ? 'selected' : '' }}>Active</option>
+                                                                <option value="inactive" {{ old('status',$blog->status) == 'inactive' ? 'selected' : '' }}>Inactive</option>
                                                             </select>
                                                             <div class="valid-feedback"> Looks good! </div>
                                                             <div class="invalid-feedback">This field is required.</div>
@@ -144,25 +161,41 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
                                                         <div class="col-sm-12">
-                                                            <label for="description" class="text-right col-form-label">Image <i class="text-danger">* </i>:</label>
-                                                            <img src="{{ $location->image ? asset('location/' . $location->image) : asset('default/image/default.png') }}" alt="Location Image">
+                                                            <label for="Location Image" class="text-right col-form-label">Image <i class="text-danger">* </i>:</label>
+                                                            <img src="{{ asset('blog/'.$blog->image) }}" alt="Location Image" id="location-image-preview">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-12">
+                                                                <label for="short_desc" class="text-right col-form-label">Short Description <i class="text-danger">* </i>:</label>
+                                                                <textarea name="short_desc" id="short_desc" class="form-control short_desc" cols="30" rows="10" placeholder="Please Enter the short descripion" required>{{ $blog->short_desc }}</textarea>
+                                                                {{-- <span class="invalid">This field is required.</span> --}}
+                                                                <div class="valid-feedback"> Looks good! </div>
+                                                                <div class="invalid-feedback">This field is required.</div>
+                                                                @error('short_desc')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-12">
+                                                            <label for="description" class="text-right col-form-label">Description <i class="text-danger">* </i>:</label>
+                                                            <textarea name="description" id="description" class="form-control description" cols="30" rows="10" placeholder="Please Enter the location Description" required>{{ $blog->description }}</textarea>
+                                                            {{-- <span class="invalid">This field is required.</span> --}}
+                                                            <div class="valid-feedback"> Looks good! </div>
+                                                            <div class="invalid-feedback">This field is required.</div>
+                                                            @error('description')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="col-sm-12">
-                                                        <label for="description" class="text-right col-form-label">Description <i class="text-danger">* </i>:</label>
-                                                        <textarea name="description" id="description" class="form-control description" cols="30" rows="10" placeholder="Please Enter the location Description" required>{{ $location->description }}</textarea>
-                                                        {{-- <span class="invalid">This field is required.</span> --}}
-                                                        <div class="valid-feedback"> Looks good! </div>
-                                                        <div class="invalid-feedback">This field is required.</div>
-                                                        @error('description')
-                                                            <span class="invalid-feedback">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
                                                 <div class="col-md-12 mb-3">
                                                     <!-- Submit Buttons -->
                                                     <div class="form-group row">
@@ -189,8 +222,25 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
     <script>
         $(document).ready(function () {
+        // Rich Text Area
         $('#description').summernote();
-        $('#name').on('keyup', function () {
+
+        $('#image').change(function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#location-image-preview')
+                        .attr('src', e.target.result)
+                        .css('display', 'block'); // Show the image
+                };
+                reader.readAsDataURL(file); // Read the file as a DataURL
+            } else {
+                $('#location-image-preview').css('display', 'none'); // Hide the preview if no file is selected
+            }
+        });
+        
+        $('#title').on('keyup', function () {
             var slug = $(this).val()
                 .toLowerCase() // Convert to lowercase
                 .replace(/[^a-z\s]/g, '') // Remove non-alphabetic characters
