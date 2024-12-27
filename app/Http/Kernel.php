@@ -26,6 +26,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         // other middleware...
         'auth.admin' => \App\Http\Middleware\AdminAuth::class,
+        'validate.api_key' => \App\Http\Middleware\ValidateApiKey::class,
     ];
 
     /**

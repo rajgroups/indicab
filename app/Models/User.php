@@ -42,4 +42,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Automatically generate an API key when creating a user
+        static::creating(function ($user) {
+            $user->api_key = \Illuminate\Support\Str::random(32);
+        });
+    }
+
+    public function regenerateApiKey()
+    {
+        $this->api_key = \Illuminate\Support\Str::random(32);
+        $this->save();
+    }
 }
